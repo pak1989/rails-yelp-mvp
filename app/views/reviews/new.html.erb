@@ -1,0 +1,9 @@
+<h2>Creating a new review for restaurant <strong>"<%= @restaurant.name %>"</strong></h2>
+
+
+<!-- action="/restaurants/42/reviews" -->
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content, label: 'Your review here please:' %>
+  <%= f.input :rating, label: 'Select a rating from 0 to 5 please:' %>
+  <%= f.submit %>
+<% end %>

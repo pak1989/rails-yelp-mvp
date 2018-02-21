@@ -1,0 +1,35 @@
+<h1>Restaurant #<%= @restaurant.id %></h1>
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @restaurant.category.capitalize %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @restaurant.phone_number %>
+</p>
+
+<p>
+  <%= link_to "Add a review", new_restaurant_review_path(@restaurant.id), class: "btn btn-danger" %>
+</p>
+
+<p>
+  <strong>Reviews:</strong>
+  <br>
+  <% counter = 0 %>
+  <% @restaurant.reviews.each do |review| %>
+  <%= "|#{"★" * review.rating}#{"☆" * (5 - review.rating)}| ##{counter + 1}. #{review.content}." %>
+  <% counter += 1 %>
+  <br>
+  <% end %>
+</p>

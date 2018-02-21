@@ -1,0 +1,24 @@
+<h1>Reviews list</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Restaurant</th>
+      <th>Rating</th>
+      <th>Review</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.restaurant.name %></td>
+        <td><%= "|#{"★" * review.rating}#{"☆" * (5 - review.rating)}|" %></td>
+        <td><%= review.content %></td>
+        <td><%= link_to "Info", review.restaurant, class: "btn btn-info" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
